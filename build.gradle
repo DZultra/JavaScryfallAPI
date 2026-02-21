@@ -1,0 +1,103 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id 'org.jreleaser' version '1.22.0'
+}
+
+def home = System.getProperty("user.home")
+
+group = 'net.dzultra'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    api 'com.google.code.gson:gson:2.10.1'
+    compileOnly 'org.jetbrains:annotations:24.0.1'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+    withSourcesJar()
+    withJavadocJar()
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId = 'net.dzultra'
+            artifactId = 'JavaScryfallAPI'
+            from components.java
+
+            pom {
+                name = 'JavaScryfallAPI'
+                description = 'JavaScryfallAPI is an API Wrapper written in Java for the popular Magic The Gathering Database Scryfall.'
+                url = 'https://github.com/DZultra/JavaScryfallAPI'
+                inceptionYear = '2021'
+                licenses {
+                    license {
+                        name = 'MIT'
+                        url = 'https://opensource.org/license/mit'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'DZultra'
+                        name = 'Daniel Zink'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:https://github.com/DZultra/JavaScryfallAPI.git'
+                    developerConnection = 'scm:git:ssh://github.com/DZultra/JavaScryfallAPI.git'
+                    url = 'https://github.com/DZultra/JavaScryfallAPI.git'
+                }
+            }
+        }
+    }
+
+    repositories { maven { url = layout.buildDirectory.dir('staging-deploy') } }
+}
+
+jreleaser {
+    project {
+        name = 'JavaScryfallAPI' // artifactId
+        group = rootProject.group.toString() // groupId
+        version = rootProject.version.toString()
+    }
+
+    signing {
+        pgp {
+            active = 'ALWAYS'
+            armored = true
+            mode = 'FILE'
+            publicKey = "$home/.jreleaser/public.asc"
+            secretKey = "$home/.jreleaser/private.asc"
+            passphrase = findProperty("passphrase")
+        }
+    }
+
+    deploy {
+        maven {
+            enabled = true
+            mavenCentral {
+                sonatype {
+                    active = 'RELEASE'
+                    url = 'https://central.sonatype.com/api/v1/publisher'
+                    stagingRepository('build/staging-deploy')
+                    sign = true
+                    sourceJar = true
+                    javadocJar = true
+                    username = findProperty("mavenUser")
+                    password = findProperty("mavenPassword")
+                }
+                pomchecker {
+                    version = rootProject.version.toString()
+                }
+            }
+        }
+    }
+}
