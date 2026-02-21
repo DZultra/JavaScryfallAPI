@@ -1,4 +1,4 @@
-**MIT License**
+## MIT License
 
 Copyright (c) 2026 Daniel Zink
 
@@ -21,27 +21,27 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 
-**Additional Terms Regarding Use of Scryfall Data and Images**
+## Additional Terms Regarding Use of Scryfall Data and Images
 
 This software may interact with or retrieve data from Scryfall. Any use of Scryfall data or images through this Software must comply with Scryfall’s API and image usage guidelines. By using this Software in conjunction with Scryfall data, you agree to the following additional conditions:
 
-1. Attribution and Endorsement Restrictions
+**1. Attribution and Endorsement Restrictions**
 - You may not use Scryfall logos.
 - You may not use the Scryfall name in any way that implies endorsement, sponsorship, or affiliation.
 - You may not imply that Scryfall has endorsed you, your product, or your work.
 
-2. No Paywalling of Scryfall Data
+**2. No Paywalling of Scryfall Data**
 - You may not “paywall” access to Scryfall data.
 - You may not require payments, subscriptions, survey completions, ratings, account upgrades, community joins, or social follows in exchange for access to Scryfall data.
 - If your software includes accounts, users must be able to access card data anonymously or via free accounts.
 
-3. Scope of Use
+**3. Scope of Use**
 - You may not use Scryfall data to create new games.
 - You may not imply that the information or images originate from any game other than Magic: The Gathering.
 - You may not simply repackage, republish, mirror, or proxy Scryfall data.
 - Your software must provide additional value beyond raw redistribution of Scryfall data.
 
-4. Image Usage Requirements
+**4. Image Usage Requirements**
 When using images sourced via Scryfall:
 - Do not crop, cover, or remove copyright notices or artist credits.
 - Do not distort, skew, stretch, blur, sharpen, desaturate, or color-shift card images.
@@ -52,5 +52,5 @@ If using the art_crop image version:
 - You must display the full card image elsewhere in the same interface.
 - Users must be able to clearly identify the artist and the source of the artwork.
 
-5. API Access Enforcement
+**5. API Access Enforcement**
 - Repeated mishandling, misrepresentation, or violation of Scryfall’s data or image usage policies may result in Scryfall restricting or blocking API access.
