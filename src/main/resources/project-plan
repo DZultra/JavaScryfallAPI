@@ -11,8 +11,8 @@ Cards
 /cards/search -> List objects of cards matching query
 /cards/named -> Single Card based on name
 /cards/autocomplete -> Catalog object of 20 english cards matching name query
-/cards/random -> Random card based on optional query
-/cards/collection -> Collection of Cards based on posted card identifier json
+/cards/random -> Random cardRequest based on optional query
+/cards/collection -> Collection of Cards based on posted cardRequest identifier json
 
 /cards/<code>/<number>(/<lang>) -> Single Card based on set code and collector number with optional lang
 /cards/multiverse/<id> -> Single Card based on Multiverse ID
@@ -21,16 +21,16 @@ Cards
 /cards/tcgplayer/<id> -> Single Card based on TCGPlayer ID
 /cards/cardmarket/<id> -> Single Card based on Cardmarket ID
 /cards/<id> -> Single Card based on Scryfall ID
-All of the Single Card based api endpoints all have /rulings to get rulings for a card
+All of the Single Card based api endpoints all have /rulings to get rulings for a cardRequest
 
 /symbology -> List of all Card Symbols
 /symbology/parse-mana -> Scryfall Interpretation of given mana cost
 
-/catalog/card-names -> Catalog of all english nontoken card names
+/catalog/cardRequest-names -> Catalog of all english nontoken cardRequest names
 /catalog/artist-names -> Catalog of all artist names
-/catalog/word-bank -> Catalog of all english words that can exist on a magic card
+/catalog/word-bank -> Catalog of all english words that can exist on a magic cardRequest
 /catalog/supertypes -> Catalog of all super types
-/catalog/card-types -> Catalog of all card types
+/catalog/cardRequest-types -> Catalog of all cardRequest types
 /catalog/artifact-types -> Catalog of all artifact types
 /catalog/battle-types -> Catalog of all Battle Types
 /catalog/creature-types -> Catalog of all Creature Types
