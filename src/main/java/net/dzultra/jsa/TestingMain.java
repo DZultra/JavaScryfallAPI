@@ -25,7 +25,9 @@ public class TestingMain {
 //            System.out.println(card.name());
 //        }
 
-        Card card = new CardRequester(client).getCardByName("Tempel der Eingebung", true);
+        Card card = new CardRequester(client).getCardByName("Optionen", "M21mljoiugu",true);
+        System.out.println(card.name());
         System.out.println(card.image_uris().large());
+        System.out.println(card.artist());
     }
 }

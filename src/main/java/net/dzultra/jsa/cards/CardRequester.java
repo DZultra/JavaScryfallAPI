@@ -65,10 +65,10 @@ public class CardRequester {
         }
     }
 
-    public Card getCardByName(@NotNull String name, boolean fuzzy) {
+    public Card getCardByName(@NotNull String name, String set,boolean fuzzy) {
         String encodedName = URLEncoder.encode(name, StandardCharsets.UTF_8);
         String param = fuzzy ? "fuzzy" : "exact";
-        URI uri = URI.create(this.client.getBaseUrl() + "/cards/named?" + param + "=" + encodedName);
+        URI uri = URI.create(this.client.getBaseUrl() + "/cards/named?" + param + "=" + encodedName + (set != null ? "&set=" + set : ""));
         return executeSingleCard(uri);
     }
 
