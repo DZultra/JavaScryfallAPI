@@ -1,4 +1,4 @@
-package net.dzultra.jsa.cards;
+package net.dzultra.jsa.cards.enums;
 
 public enum UniqueMode {
     CARDS("cards"),
