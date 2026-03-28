@@ -1,4 +1,4 @@
-package net.dzultra.jsa.cards;
+package net.dzultra.jsa.exceptions;
 
 import org.jetbrains.annotations.Nullable;
 
