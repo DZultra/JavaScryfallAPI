@@ -1,6 +1,6 @@
-Base Endpoint: api.scryfall.com
-Requests need User-Agent & Accept Header (application/json)
-User-Agent needs to be set dynamically -> build a client system
+    Base Endpoint: api.scryfall.com
+    Requests need User-Agent & Accept Header (application/json)
+    User-Agent needs to be set dynamically -> build a client system
 
 Sets
 /sets -> All Sets
@@ -8,8 +8,8 @@ Sets
 /sets/<uuid> -> Set with Scryfall UUID
 
 Cards
-/cards/search -> List objects of cards matching query
-/cards/named -> Single Card based on name
+    /cards/search -> List objects of cards matching query
+    /cards/named -> Single Card based on name
 /cards/autocomplete -> Catalog object of 20 english cards matching name query
 /cards/random -> Random cardRequest based on optional query
 /cards/collection -> Collection of Cards based on posted cardRequest identifier json
@@ -23,33 +23,33 @@ Cards
 /cards/<id> -> Single Card based on Scryfall ID
 All of the Single Card based api endpoints all have /rulings to get rulings for a cardRequest
 
-/symbology -> List of all Card Symbols
-/symbology/parse-mana -> Scryfall Interpretation of given mana cost
+    /symbology -> List of all Card Symbols
+    /symbology/parse-mana -> Scryfall Interpretation of given mana cost
 
-/catalog/cardRequest-names -> Catalog of all english nontoken cardRequest names
-/catalog/artist-names -> Catalog of all artist names
-/catalog/word-bank -> Catalog of all english words that can exist on a magic cardRequest
-/catalog/supertypes -> Catalog of all super types
-/catalog/cardRequest-types -> Catalog of all cardRequest types
-/catalog/artifact-types -> Catalog of all artifact types
-/catalog/battle-types -> Catalog of all Battle Types
-/catalog/creature-types -> Catalog of all Creature Types
-/catalog/enchantment-types -> Catalog of all Enchantment Types
-/catalog/land-types -> Catalog of all Land Types
-/catalog/planeswalker-types -> Catalog of all Planeswalker Types
-/catalog/spell-types -> Catalog of all Spell Types
-/catalog/powers -> Catalog of all possible powers of a creature/vehicle
-/catalog/thoughnesses -> Catalog of all possible powers of a creature/vehicle
-/catalog/loyalties -> Catalog of all possible loyalties of planeswalkers
-/catalog/keyword-abilities -> Catalog of all keyword abilities
-/catalog/keyword-actions -> Catalog of all keyword actions
-/catalog/ability-words -> Catalog of all ability words
-/catalog/flavor-words -> Catalog of all flavor-words
-/catalog/watermarks -> Catalog of all watermarks
+    /catalog/cardRequest-names -> Catalog of all english nontoken cardRequest names
+    /catalog/artist-names -> Catalog of all artist names
+    /catalog/word-bank -> Catalog of all english words that can exist on a magic cardRequest
+    /catalog/supertypes -> Catalog of all super types
+    /catalog/cardRequest-types -> Catalog of all cardRequest types
+    /catalog/artifact-types -> Catalog of all artifact types
+    /catalog/battle-types -> Catalog of all Battle Types
+    /catalog/creature-types -> Catalog of all Creature Types
+    /catalog/enchantment-types -> Catalog of all Enchantment Types
+    /catalog/land-types -> Catalog of all Land Types
+    /catalog/planeswalker-types -> Catalog of all Planeswalker Types
+    /catalog/spell-types -> Catalog of all Spell Types
+    /catalog/powers -> Catalog of all possible powers of a creature/vehicle
+    /catalog/thoughnesses -> Catalog of all possible powers of a creature/vehicle
+    /catalog/loyalties -> Catalog of all possible loyalties of planeswalkers
+    /catalog/keyword-abilities -> Catalog of all keyword abilities
+    /catalog/keyword-actions -> Catalog of all keyword actions
+    /catalog/ability-words -> Catalog of all ability words
+    /catalog/flavor-words -> Catalog of all flavor-words
+    /catalog/watermarks -> Catalog of all watermarks
 
-/bulk-data -> List of all bulk data objects
-/bulk-data/<id> -> Bulk Data object based on id
-/bulk-data/<type> -> Bulk Data object based on type
+    /bulk-data -> List of all bulk data objects
+    /bulk-data/<id> -> Bulk Data object based on id
+    /bulk-data/<type> -> Bulk Data object based on type
 
 
 
