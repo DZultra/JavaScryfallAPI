@@ -10,7 +10,7 @@ import java.net.URI;
 import java.net.http.HttpResponse;
 
 public class CardSearchExecutor {
-    public static CardSearchObject executeCardSearch(CardRequester requester, ScryfallClient client, Gson gson, URI uri) {
+    public static CardList executeCardSearch(ScryfallClient client, Gson gson, URI uri) {
         String response;
 
         try {
@@ -25,13 +25,13 @@ public class CardSearchExecutor {
         if (!ResponseValidator.isValidResponseDouble(gson, response, "list", "card")) throw new CardSearchException(uri, response);
 
         try {
-            return gson.fromJson(response, CardSearchObject.class);
+            return gson.fromJson(response, CardList.class);
         } catch (Exception e) {
             throw new CardSearchException(uri, response);
         }
     }
 
-    public static Card executeSingleCardSearch(CardRequester requester, ScryfallClient client, Gson gson ,URI uri) {
+    public static Card executeSingleCardSearch(ScryfallClient client, Gson gson ,URI uri) {
         String response;
 
         try {

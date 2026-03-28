@@ -1,9 +1,7 @@
 package net.dzultra.jsa.cards;
 
 import com.google.gson.Gson;
-import net.dzultra.jsa.DataTypeRecord;
 import net.dzultra.jsa.ScryfallClient;
-import net.dzultra.jsa.TypeRecord;
 import net.dzultra.jsa.cards.enums.OrderMode;
 import net.dzultra.jsa.cards.enums.SortMode;
 import net.dzultra.jsa.cards.enums.UniqueMode;
@@ -24,13 +22,13 @@ public class CardRequester {
 
     // ---- Cards By Query ----
 
-    public CardSearchObject getCardsByQuery(String query) {
+    public CardList getCardsByQuery(String query) {
         String encodedQuery = URLEncoder.encode(query, StandardCharsets.UTF_8);
         URI uri = URI.create(this.client.getBaseUrl() + "/cards/search?q=" + encodedQuery);
-        return CardSearchExecutor.executeCardSearch(this, this.client, this.gson, uri);
+        return CardSearchExecutor.executeCardSearch(this.client, this.gson, uri);
     }
 
-    public CardSearchObject getCardsByQuery(
+    public CardList getCardsByQuery(
             String query,
             @Nullable UniqueMode uniqueMode,
             @Nullable OrderMode orderMode,
@@ -44,7 +42,7 @@ public class CardRequester {
         if (sortMode != null) url.append("&dir=").append(sortMode.getValue());
 
         URI uri = URI.create(url.toString());
-        return CardSearchExecutor.executeCardSearch(this, this.client, this.gson, uri);
+        return CardSearchExecutor.executeCardSearch(this.client, this.gson, uri);
     }
 
     // ---- Card By Name ----
@@ -53,6 +51,6 @@ public class CardRequester {
         String encodedName = URLEncoder.encode(name, StandardCharsets.UTF_8);
         String param = fuzzy ? "fuzzy" : "exact";
         URI uri = URI.create(this.client.getBaseUrl() + "/cards/named?" + param + "=" + encodedName + (set != null ? "&set=" + set : ""));
-        return CardSearchExecutor.executeSingleCardSearch(this, this.client, this.gson, uri);
+        return CardSearchExecutor.executeSingleCardSearch(this.client, this.gson, uri);
     }
 }
