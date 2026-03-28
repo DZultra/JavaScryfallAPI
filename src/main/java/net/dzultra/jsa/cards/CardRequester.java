@@ -4,13 +4,14 @@ import com.google.gson.Gson;
 import net.dzultra.jsa.DataTypeRecord;
 import net.dzultra.jsa.ScryfallClient;
 import net.dzultra.jsa.TypeRecord;
+import net.dzultra.jsa.cards.enums.OrderMode;
+import net.dzultra.jsa.cards.enums.SortMode;
+import net.dzultra.jsa.cards.enums.UniqueMode;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.io.IOException;
 import java.net.URI;
 import java.net.URLEncoder;
-import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 
 public class CardRequester {
@@ -21,10 +22,12 @@ public class CardRequester {
         this.client = client;
     }
 
+    // ---- Cards By Query ----
+
     public CardSearchObject getCardsByQuery(String query) {
         String encodedQuery = URLEncoder.encode(query, StandardCharsets.UTF_8);
         URI uri = URI.create(this.client.getBaseUrl() + "/cards/search?q=" + encodedQuery);
-        return executeCardSearch(uri);
+        return CardSearchExecutor.executeCardSearch(this, this.client, this.gson, uri);
     }
 
     public CardSearchObject getCardsByQuery(
@@ -41,60 +44,19 @@ public class CardRequester {
         if (sortMode != null) url.append("&dir=").append(sortMode.getValue());
 
         URI uri = URI.create(url.toString());
-        return executeCardSearch(uri);
+        return CardSearchExecutor.executeCardSearch(this, this.client, this.gson, uri);
     }
 
-    private CardSearchObject executeCardSearch(URI uri) {
-        String response;
+    // ---- Card By Name ----
 
-        try {
-            response = this.client.httpClient.send(
-                    this.client.requestBuilder.GET().uri(uri).build(),
-                    HttpResponse.BodyHandlers.ofString()
-            ).body();
-        } catch (IOException | InterruptedException e) {
-            throw new CardSearchException(uri, null);
-        }
-
-        if (!isValidResponseDouble(response, "list", "card")) throw new CardSearchException(uri, response);
-
-        try {
-            return gson.fromJson(response, CardSearchObject.class);
-        } catch (Exception e) {
-            throw new CardSearchException(uri, response);
-        }
-    }
-
-    public Card getCardByName(@NotNull String name, String set,boolean fuzzy) {
+    public Card getCardByName(@NotNull String name, @Nullable String set, boolean fuzzy) {
         String encodedName = URLEncoder.encode(name, StandardCharsets.UTF_8);
         String param = fuzzy ? "fuzzy" : "exact";
         URI uri = URI.create(this.client.getBaseUrl() + "/cards/named?" + param + "=" + encodedName + (set != null ? "&set=" + set : ""));
-        return executeSingleCard(uri);
+        return CardSearchExecutor.executeSingleCardSearch(this, this.client, this.gson, uri);
     }
 
-    private Card executeSingleCard(URI uri) {
-        String response;
-
-        try {
-            response = this.client.httpClient.send(
-                    this.client.requestBuilder.GET().uri(uri).build(),
-                    HttpResponse.BodyHandlers.ofString()
-            ).body();
-        } catch (IOException | InterruptedException e) {
-            throw new CardSearchException(uri, null);
-        }
-
-        if (!isValidResponseSingle(response, "card")) {
-            throw new CardSearchException(uri, response);
-        }
-
-        try {
-            return gson.fromJson(response, Card.class);
-        } catch (Exception e) {
-            System.out.println(e.getCause() + " | " + e.getMessage());
-            throw new CardSearchException(uri, response);
-        }
-    }
+    // ---- Helper Methods ----
 
     public boolean isValidResponseSingle(String response, String type) {
         TypeRecord record = gson.fromJson(response, TypeRecord.class);
