@@ -1,6 +1,7 @@
 package net.dzultra.jsa.cards;
 
 import com.google.gson.Gson;
+import net.dzultra.jsa.ResponseValidator;
 import net.dzultra.jsa.ScryfallClient;
 import net.dzultra.jsa.exceptions.CardSearchException;
 
@@ -21,7 +22,7 @@ public class CardSearchExecutor {
             throw new CardSearchException(uri, null);
         }
 
-        if (!requester.isValidResponseDouble(response, "list", "card")) throw new CardSearchException(uri, response);
+        if (!ResponseValidator.isValidResponseDouble(gson, response, "list", "card")) throw new CardSearchException(uri, response);
 
         try {
             return gson.fromJson(response, CardSearchObject.class);
@@ -42,7 +43,7 @@ public class CardSearchExecutor {
             throw new CardSearchException(uri, null);
         }
 
-        if (!requester.isValidResponseSingle(response, "card")) {
+        if (!ResponseValidator.isValidResponseSingle(gson, response, "card")) {
             throw new CardSearchException(uri, response);
         }
 

@@ -1,6 +1,7 @@
 package net.dzultra.jsa.catalogs;
 
 import com.google.gson.Gson;
+import net.dzultra.jsa.ResponseValidator;
 import net.dzultra.jsa.ScryfallClient;
 import net.dzultra.jsa.TypeRecord;
 import net.dzultra.jsa.exceptions.CatalogResponseException;
@@ -32,15 +33,11 @@ public class Catalog {
     }
 
     public CatalogResponse getCatalog() {
-        if(isValidResponse()) {
+        if(ResponseValidator.isValidResponseSingle(gson, this.getResponse(), "catalog")) {
             return gson.fromJson(this.getResponse(), CatalogResponse.class);
         } else {
             throw new CatalogResponseException(this);
         }
-    }
-
-    public boolean isValidResponse() {
-        return gson.fromJson(this.getResponse(), TypeRecord.class).type().equals("catalog");
     }
 
     public CatalogType getCatalogType() {

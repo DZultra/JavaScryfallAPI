@@ -55,16 +55,4 @@ public class CardRequester {
         URI uri = URI.create(this.client.getBaseUrl() + "/cards/named?" + param + "=" + encodedName + (set != null ? "&set=" + set : ""));
         return CardSearchExecutor.executeSingleCardSearch(this, this.client, this.gson, uri);
     }
-
-    // ---- Helper Methods ----
-
-    public boolean isValidResponseSingle(String response, String type) {
-        TypeRecord record = gson.fromJson(response, TypeRecord.class);
-        return record.type().equals(type);
-    }
-
-    public boolean isValidResponseDouble(String response, String type1, String type2) {
-        DataTypeRecord record = gson.fromJson(response, DataTypeRecord.class);
-        return record.type().equals(type1) && record.data()[0].type().equals(type2);
-    }
 }
