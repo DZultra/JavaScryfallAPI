@@ -5,6 +5,7 @@ import net.dzultra.jsa.ScryfallClient;
 import net.dzultra.jsa.cards.enums.OrderMode;
 import net.dzultra.jsa.cards.enums.SortMode;
 import net.dzultra.jsa.cards.enums.UniqueMode;
+import net.dzultra.jsa.sets.MTGSet;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -51,6 +52,13 @@ public class CardRequester {
         String encodedName = URLEncoder.encode(name, StandardCharsets.UTF_8);
         String param = fuzzy ? "fuzzy" : "exact";
         URI uri = URI.create(this.client.getBaseUrl() + "/cards/named?" + param + "=" + encodedName + (set != null ? "&set=" + set : ""));
+        return CardSearchExecutor.executeSingleCardSearch(this.client, this.gson, uri);
+    }
+
+    public Card getCardByName(@NotNull String name, @Nullable MTGSet set, boolean fuzzy) {
+        String encodedName = URLEncoder.encode(name, StandardCharsets.UTF_8);
+        String param = fuzzy ? "fuzzy" : "exact";
+        URI uri = URI.create(this.client.getBaseUrl() + "/cards/named?" + param + "=" + encodedName + (set != null && set.code() != null ? "&set=" + set : ""));
         return CardSearchExecutor.executeSingleCardSearch(this.client, this.gson, uri);
     }
 }

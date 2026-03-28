@@ -1,5 +1,7 @@
 package net.dzultra.jsa;
 
+import net.dzultra.jsa.cards.Card;
+import net.dzultra.jsa.cards.CardRequester;
 import net.dzultra.jsa.sets.MTGSet;
 import net.dzultra.jsa.sets.MTGSetList;
 import net.dzultra.jsa.sets.SetRequester;
@@ -29,10 +31,10 @@ public class TestingMain {
 //            System.out.println(card.name());
 //        }
 
-//        Card card = new CardRequester(client).getCardByName("", null,true);
-//        System.out.println(card.name());
-//        System.out.println(card.image_uris());
-//        System.out.println(card.artist());
+        Card card = new CardRequester(client).getCardByName("Charix", "ZNR", true);
+        System.out.println(card.name());
+        System.out.println(card.image_uris());
+        System.out.println(card.artist());
 
 //        MTGSetList setList = new SetRequester(client).getAllSets();
 //        System.out.println(setList.sets()[100].code());
