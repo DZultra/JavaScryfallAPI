@@ -1,9 +1,13 @@
 package net.dzultra.jsa;
 
-import net.dzultra.jsa.cards.*;
+import net.dzultra.jsa.sets.MTGSet;
+import net.dzultra.jsa.sets.MTGSetList;
+import net.dzultra.jsa.sets.SetRequester;
+import net.dzultra.jsa.sets.SetType;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.UUID;
 
 public class TestingMain {
     public static void main(String[] args) throws IOException, URISyntaxException, InterruptedException {
@@ -25,9 +29,18 @@ public class TestingMain {
 //            System.out.println(card.name());
 //        }
 
-        Card card = new CardRequester(client).getCardByName("Optionen", "M21mljoiugu",true);
-        System.out.println(card.name());
-        System.out.println(card.image_uris().large());
-        System.out.println(card.artist());
+//        Card card = new CardRequester(client).getCardByName("", null,true);
+//        System.out.println(card.name());
+//        System.out.println(card.image_uris());
+//        System.out.println(card.artist());
+
+//        MTGSetList setList = new SetRequester(client).getAllSets();
+//        System.out.println(setList.sets()[100].code());
+//        System.out.println(setList.sets()[100].name());
+
+//        MTGSet set = new SetRequester(client).getSetByUUID(UUID.fromString("2ec77b94-6d47-4891-a480-5d0b4e5c9372"));
+//        System.out.println(set.code());
+//        System.out.println(set.name());
+//        System.out.println(SetType.fromString(set.set_type()));
     }
 }
