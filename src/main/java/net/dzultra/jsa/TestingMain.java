@@ -2,6 +2,8 @@ package net.dzultra.jsa;
 
 import net.dzultra.jsa.cards.Card;
 import net.dzultra.jsa.cards.CardRequester;
+import net.dzultra.jsa.catalogs.Catalog;
+import net.dzultra.jsa.catalogs.CatalogType;
 import net.dzultra.jsa.sets.MTGSet;
 import net.dzultra.jsa.sets.MTGSetList;
 import net.dzultra.jsa.sets.SetRequester;
@@ -9,6 +11,7 @@ import net.dzultra.jsa.sets.SetType;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.Arrays;
 import java.util.UUID;
 
 public class TestingMain {
@@ -31,10 +34,13 @@ public class TestingMain {
 //            System.out.println(card.name());
 //        }
 
-        Card card = new CardRequester(client).getCardByName("Charix", "ZNR", true);
-        System.out.println(card.name());
-        System.out.println(card.image_uris());
-        System.out.println(card.artist());
+//        Card card = new CardRequester(client).getCardByName("Demonic Tutor", "CMM", true);
+//        System.out.println(card.name());
+//        System.out.println(card.image_uris());
+//        System.out.println(card.prices());
+
+//        Catalog catalog = new Catalog(client, CatalogType.TOUGHNESSES);
+//        System.out.println(Arrays.toString(catalog.getCatalog().data()));
 
 //        MTGSetList setList = new SetRequester(client).getAllSets();
 //        System.out.println(setList.sets()[100].code());

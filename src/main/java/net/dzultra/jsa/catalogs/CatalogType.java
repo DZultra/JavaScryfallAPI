@@ -14,7 +14,7 @@ public enum CatalogType {
     PLANESWALKER_TYPES("/catalog/planeswalker-types"),
     SPELL_TYPES("/catalog/spell-types"),
     POWERS("/catalog/powers"),
-    TOUGHNESSES("/catalog/thoughnesses"),
+    TOUGHNESSES("/catalog/toughnesses"),
     LOYALTIES("/catalog/loyalties"),
     KEYWORD_ABILITIES("/catalog/keyword-abilities"),
     KEYWORD_ACTIONS("/catalog/keyword-actions"),
