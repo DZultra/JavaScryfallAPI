@@ -3,6 +3,7 @@ package net.dzultra.jsa;
 import net.dzultra.jsa.cards.Card;
 import net.dzultra.jsa.cards.CardNameList;
 import net.dzultra.jsa.cards.CardRequester;
+import net.dzultra.jsa.cards.enums.CardIDType;
 import net.dzultra.jsa.cards.enums.Language;
 import net.dzultra.jsa.catalogs.Catalog;
 import net.dzultra.jsa.catalogs.CatalogType;
@@ -66,6 +67,10 @@ public class TestingMain {
 //        Desktop.getDesktop().browse(card.image_uris().large());
 
 //        Card card = new CardRequester(client).getCardBySetAndNumber("BLB", "63", Language.EN);
+//        System.out.println(card.name());
+//        Desktop.getDesktop().browse(card.image_uris().large());
+
+//        Card card = new CardRequester(client).getCardById("59697", CardIDType.MTGO);
 //        System.out.println(card.name());
 //        Desktop.getDesktop().browse(card.image_uris().large());
     }

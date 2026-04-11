@@ -15,12 +15,12 @@ Cards
 /cards/collection -> Collection of Cards based on posted cardRequest identifier json
 
     /cards/<code>/<number>(/<lang>) -> Single Card based on set code and collector number with optional lang
-/cards/multiverse/<id> -> Single Card based on Multiverse ID
-/cards/mtgo/<id> -> Single Card based on MTGO ID
-/cards/arena/<id> -> Single Card based on Arena ID
-/cards/tcgplayer/<id> -> Single Card based on TCGPlayer ID
-/cards/cardmarket/<id> -> Single Card based on Cardmarket ID
-/cards/<id> -> Single Card based on Scryfall ID
+    /cards/multiverse/<id> -> Single Card based on Multiverse ID
+    /cards/mtgo/<id> -> Single Card based on MTGO ID
+    /cards/arena/<id> -> Single Card based on Arena ID
+    /cards/tcgplayer/<id> -> Single Card based on TCGPlayer ID
+    /cards/cardmarket/<id> -> Single Card based on Cardmarket ID
+    /cards/<id> -> Single Card based on Scryfall ID
 All of the Single Card based api endpoints all have /rulings to get rulings for a cardRequest
 
     /symbology -> List of all Card Symbols

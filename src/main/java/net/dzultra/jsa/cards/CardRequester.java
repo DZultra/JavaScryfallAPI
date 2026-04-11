@@ -2,10 +2,7 @@ package net.dzultra.jsa.cards;
 
 import com.google.gson.Gson;
 import net.dzultra.jsa.ScryfallClient;
-import net.dzultra.jsa.cards.enums.Language;
-import net.dzultra.jsa.cards.enums.OrderMode;
-import net.dzultra.jsa.cards.enums.SortMode;
-import net.dzultra.jsa.cards.enums.UniqueMode;
+import net.dzultra.jsa.cards.enums.*;
 import net.dzultra.jsa.sets.MTGSet;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -120,4 +117,10 @@ public class CardRequester {
         return CardSearchExecutor.executeSingleCardSearch(this.client, this.gson, uri);
     }
 
+    // ---- Card By ID ----
+
+    public Card getCardById(String id, CardIDType idType) {
+        URI uri = URI.create(this.client.getBaseUrl() + "/cards/" + idType.getPathSegment() + id);
+        return CardSearchExecutor.executeSingleCardSearch(this.client, this.gson, uri);
+    }
 }
