@@ -2,6 +2,7 @@ package net.dzultra.jsa.cards;
 
 import com.google.gson.Gson;
 import net.dzultra.jsa.ScryfallClient;
+import net.dzultra.jsa.cards.enums.Language;
 import net.dzultra.jsa.cards.enums.OrderMode;
 import net.dzultra.jsa.cards.enums.SortMode;
 import net.dzultra.jsa.cards.enums.UniqueMode;
@@ -96,5 +97,27 @@ public class CardRequester {
 //        URI uri = URI.create(this.client.getBaseUrl() + "/cards/collection");
 //        return CardSearchExecutor.executeCardCollectionSearch(this.client, this.gson, uri);
 //    }
+
+    // ---- Card By Set Code and Set Number ----
+
+    public Card getCardBySetAndNumber(String setCode, String collectorNumber) {
+        URI uri = URI.create(this.client.getBaseUrl() + "/cards/" + setCode + "/" + collectorNumber);
+        return CardSearchExecutor.executeSingleCardSearch(this.client, this.gson, uri);
+    }
+
+    public Card getCardBySetAndNumber(String setCode, String collectorNumber, Language lang) {
+        URI uri = URI.create(this.client.getBaseUrl() + "/cards/" + setCode + "/" + collectorNumber + "/" + lang.getCode());
+        return CardSearchExecutor.executeSingleCardSearch(this.client, this.gson, uri);
+    }
+
+    public Card getCardBySetAndNumber(MTGSet set, String collectorNumber) {
+        URI uri = URI.create(this.client.getBaseUrl() + "/cards/" + set.code() + "/" + collectorNumber);
+        return CardSearchExecutor.executeSingleCardSearch(this.client, this.gson, uri);
+    }
+
+    public Card getCardBySetAndNumber(MTGSet set, String collectorNumber, Language lang) {
+        URI uri = URI.create(this.client.getBaseUrl() + "/cards/" + set.code() + "/" + collectorNumber  + "/" + lang.getCode());
+        return CardSearchExecutor.executeSingleCardSearch(this.client, this.gson, uri);
+    }
 
 }

@@ -14,7 +14,7 @@ Cards
     /cards/random -> Random cardRequest based on optional query
 /cards/collection -> Collection of Cards based on posted cardRequest identifier json
 
-/cards/<code>/<number>(/<lang>) -> Single Card based on set code and collector number with optional lang
+    /cards/<code>/<number>(/<lang>) -> Single Card based on set code and collector number with optional lang
 /cards/multiverse/<id> -> Single Card based on Multiverse ID
 /cards/mtgo/<id> -> Single Card based on MTGO ID
 /cards/arena/<id> -> Single Card based on Arena ID

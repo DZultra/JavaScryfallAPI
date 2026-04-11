@@ -3,6 +3,7 @@ package net.dzultra.jsa;
 import net.dzultra.jsa.cards.Card;
 import net.dzultra.jsa.cards.CardNameList;
 import net.dzultra.jsa.cards.CardRequester;
+import net.dzultra.jsa.cards.enums.Language;
 import net.dzultra.jsa.catalogs.Catalog;
 import net.dzultra.jsa.catalogs.CatalogType;
 import net.dzultra.jsa.sets.MTGSet;
@@ -20,8 +21,10 @@ public class TestingMain {
     public static void main(String[] args) throws IOException, URISyntaxException, InterruptedException {
         ScryfallClient client = new ScryfallClient("JavaScryfallAPITest/1.0");
 
-//        Catalog catalog = new Catalog(client, CatalogType.CARD_NAMES);
-//        System.out.println(Arrays.toString(catalog.getCatalog().data()));
+//        Catalog catalog = new Catalog(client, CatalogType.ARTIST_NAMES);
+//        for (String artist : catalog.getCatalog().data()) {
+//            System.out.println(artist);
+//        }
 
 //        BulkData bulkData = new BulkData(client);
 //        System.out.println(bulkData.getBulkData().data()[0].name());
@@ -59,6 +62,10 @@ public class TestingMain {
 //        }
 
 //        Card card = new CardRequester(client).getRandomCard();
+//        System.out.println(card.name());
+//        Desktop.getDesktop().browse(card.image_uris().large());
+
+//        Card card = new CardRequester(client).getCardBySetAndNumber("BLB", "63", Language.EN);
 //        System.out.println(card.name());
 //        Desktop.getDesktop().browse(card.image_uris().large());
     }
