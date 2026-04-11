@@ -1,6 +1,7 @@
 package net.dzultra.jsa;
 
 import net.dzultra.jsa.cards.Card;
+import net.dzultra.jsa.cards.CardNameList;
 import net.dzultra.jsa.cards.CardRequester;
 import net.dzultra.jsa.catalogs.Catalog;
 import net.dzultra.jsa.catalogs.CatalogType;
@@ -50,5 +51,10 @@ public class TestingMain {
 //        System.out.println(set.code());
 //        System.out.println(set.name());
 //        System.out.println(SetType.fromString(set.set_type()));
+
+        CardNameList cardNameList = new CardRequester(client).getCardNamesByQuery("Chandra", true);
+        for (String name : cardNameList.card_names()) {
+            System.out.println(name);
+        }
     }
 }

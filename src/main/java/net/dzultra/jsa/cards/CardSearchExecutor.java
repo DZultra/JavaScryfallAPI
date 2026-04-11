@@ -3,6 +3,7 @@ package net.dzultra.jsa.cards;
 import com.google.gson.Gson;
 import net.dzultra.jsa.ResponseValidator;
 import net.dzultra.jsa.ScryfallClient;
+import net.dzultra.jsa.exceptions.CardNameException;
 import net.dzultra.jsa.exceptions.CardSearchException;
 
 import java.io.IOException;
@@ -31,7 +32,7 @@ public class CardSearchExecutor {
         }
     }
 
-    public static Card executeSingleCardSearch(ScryfallClient client, Gson gson ,URI uri) {
+    public static Card executeSingleCardSearch(ScryfallClient client, Gson gson, URI uri) {
         String response;
 
         try {
@@ -52,6 +53,30 @@ public class CardSearchExecutor {
         } catch (Exception e) {
             System.out.println(e.getCause() + " | " + e.getMessage());
             throw new CardSearchException(uri, response);
+        }
+    }
+
+    public static CardNameList executeCardNameListSearch(ScryfallClient client, Gson gson, URI uri) {
+        String response;
+
+        try {
+            response = client.httpClient.send(
+                    client.requestBuilder.GET().uri(uri).build(),
+                    HttpResponse.BodyHandlers.ofString()
+            ).body();
+        } catch (IOException | InterruptedException e) {
+            throw new CardNameException(uri, null);
+        }
+
+        if (!ResponseValidator.isValidResponseSingle(gson, response, "catalog")) {
+            throw new CardNameException(uri, response);
+        }
+
+        try {
+            return gson.fromJson(response, CardNameList.class);
+        } catch (Exception e) {
+            System.out.println(e.getCause() + " | " + e.getMessage());
+            throw new CardNameException(uri, response);
         }
     }
 }

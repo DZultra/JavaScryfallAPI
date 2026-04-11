@@ -61,4 +61,16 @@ public class CardRequester {
         URI uri = URI.create(this.client.getBaseUrl() + "/cards/named?" + param + "=" + encodedName + (set != null && set.code() != null ? "&set=" + set : ""));
         return CardSearchExecutor.executeSingleCardSearch(this.client, this.gson, uri);
     }
+
+    public CardNameList getCardNamesByQuery(String query) {
+        String encodedQuery = URLEncoder.encode(query, StandardCharsets.UTF_8);
+        URI uri = URI.create(this.client.getBaseUrl() + "/cards/autocomplete?q=" + encodedQuery);
+        return CardSearchExecutor.executeCardNameListSearch(this.client, this.gson, uri);
+    }
+
+    public CardNameList getCardNamesByQuery(String query, boolean includeExtras) {
+        String encodedQuery = URLEncoder.encode(query, StandardCharsets.UTF_8);
+        URI uri = URI.create(this.client.getBaseUrl() + "/cards/autocomplete?q=" + encodedQuery + "&include_extras=" + includeExtras);
+        return CardSearchExecutor.executeCardNameListSearch(this.client, this.gson, uri);
+    }
 }

@@ -3,14 +3,14 @@
     User-Agent needs to be set dynamically -> build a client system
 
 Sets
-/sets -> All Sets
-/sets/tcgplayer/<id> -> Set with TCGPlayer API Id
-/sets/<uuid> -> Set with Scryfall UUID
+    /sets -> All Sets
+    /sets/tcgplayer/<id> -> Set with TCGPlayer API Id
+    /sets/<uuid> -> Set with Scryfall UUID
 
 Cards
     /cards/search -> List objects of cards matching query
     /cards/named -> Single Card based on name
-/cards/autocomplete -> Catalog object of 20 english cards matching name query
+    /cards/autocomplete -> Catalog object of 20 english cards matching name query
 /cards/random -> Random cardRequest based on optional query
 /cards/collection -> Collection of Cards based on posted cardRequest identifier json
 
