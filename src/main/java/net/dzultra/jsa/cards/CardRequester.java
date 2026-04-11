@@ -88,4 +88,13 @@ public class CardRequester {
         URI uri = URI.create(this.client.getBaseUrl() + "/cards/random?q=" + encodedQuery);
         return CardSearchExecutor.executeSingleCardSearch(this.client, this.gson, uri);
     }
+
+    // ---- Card Collection/List By Card Identifiers ----
+
+    // Note: This endpoint is unfinished
+//    public CardCollection getCardCollectionByIdentifiers() {
+//        URI uri = URI.create(this.client.getBaseUrl() + "/cards/collection");
+//        return CardSearchExecutor.executeCardCollectionSearch(this.client, this.gson, uri);
+//    }
+
 }

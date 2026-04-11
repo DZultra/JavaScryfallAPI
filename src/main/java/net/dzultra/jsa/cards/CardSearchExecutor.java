@@ -3,11 +3,13 @@ package net.dzultra.jsa.cards;
 import com.google.gson.Gson;
 import net.dzultra.jsa.ResponseValidator;
 import net.dzultra.jsa.ScryfallClient;
+import net.dzultra.jsa.exceptions.CardCollectionException;
 import net.dzultra.jsa.exceptions.CardNameException;
 import net.dzultra.jsa.exceptions.CardSearchException;
 
 import java.io.IOException;
 import java.net.URI;
+import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class CardSearchExecutor {
@@ -79,4 +81,33 @@ public class CardSearchExecutor {
             throw new CardNameException(uri, response);
         }
     }
+
+//    @Deprecated
+//    public static CardCollection executeCardCollectionSearch(ScryfallClient client, Gson gson, URI uri) {
+//        String body = "";
+//
+//        String response;
+//
+//        try {
+//            response = client.httpClient.send(
+//                    client.requestBuilder.header("Content-Type", "application/json")
+//                            .POST(HttpRequest.BodyPublishers.ofString(body))
+//                            .uri(uri).build(),
+//                    HttpResponse.BodyHandlers.ofString()
+//            ).body();
+//        } catch (IOException | InterruptedException e) {
+//            throw new CardCollectionException(uri, null);
+//        }
+//
+//        if (!ResponseValidator.isValidResponseDouble(gson, response, "list", "card")) {
+//            throw new CardCollectionException(uri, response);
+//        }
+//
+//        try {
+//            return gson.fromJson(response, CardCollection.class);
+//        } catch (Exception e) {
+//            System.out.println(e.getCause() + " | " + e.getMessage());
+//            throw new CardCollectionException(uri, response);
+//        }
+//    }
 }

@@ -20,4 +20,8 @@ public class ScryfallClient {
     public String getBaseUrl() {
         return BASE_URL;
     }
+
+    public String getUserAgent() {
+        return userAgent;
+    }
 }
