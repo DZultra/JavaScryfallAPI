@@ -10,6 +10,7 @@ import net.dzultra.jsa.sets.MTGSetList;
 import net.dzultra.jsa.sets.SetRequester;
 import net.dzultra.jsa.sets.SetType;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Arrays;
@@ -52,9 +53,13 @@ public class TestingMain {
 //        System.out.println(set.name());
 //        System.out.println(SetType.fromString(set.set_type()));
 
-        CardNameList cardNameList = new CardRequester(client).getCardNamesByQuery("Chandra", true);
-        for (String name : cardNameList.card_names()) {
-            System.out.println(name);
-        }
+//        CardNameList cardNameList = new CardRequester(client).getCardNamesByQuery("Chandra", true);
+//        for (String name : cardNameList.card_names()) {
+//            System.out.println(name);
+//        }
+
+//        Card card = new CardRequester(client).getRandomCard();
+//        System.out.println(card.name());
+//        Desktop.getDesktop().browse(card.image_uris().large());
     }
 }

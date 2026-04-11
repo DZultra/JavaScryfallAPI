@@ -62,6 +62,8 @@ public class CardRequester {
         return CardSearchExecutor.executeSingleCardSearch(this.client, this.gson, uri);
     }
 
+    // ---- Card Names By Query (Autocomplete) ----
+
     public CardNameList getCardNamesByQuery(String query) {
         String encodedQuery = URLEncoder.encode(query, StandardCharsets.UTF_8);
         URI uri = URI.create(this.client.getBaseUrl() + "/cards/autocomplete?q=" + encodedQuery);
@@ -72,5 +74,18 @@ public class CardRequester {
         String encodedQuery = URLEncoder.encode(query, StandardCharsets.UTF_8);
         URI uri = URI.create(this.client.getBaseUrl() + "/cards/autocomplete?q=" + encodedQuery + "&include_extras=" + includeExtras);
         return CardSearchExecutor.executeCardNameListSearch(this.client, this.gson, uri);
+    }
+
+    // ---- Random Card By Optional Query ----
+
+    public Card getRandomCard() {
+        URI uri = URI.create(this.client.getBaseUrl() + "/cards/random");
+        return CardSearchExecutor.executeSingleCardSearch(this.client, this.gson, uri);
+    }
+
+    public Card getRandomCard(String query) {
+        String encodedQuery = URLEncoder.encode(query, StandardCharsets.UTF_8);
+        URI uri = URI.create(this.client.getBaseUrl() + "/cards/random?q=" + encodedQuery);
+        return CardSearchExecutor.executeSingleCardSearch(this.client, this.gson, uri);
     }
 }

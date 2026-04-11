@@ -11,7 +11,7 @@ Cards
     /cards/search -> List objects of cards matching query
     /cards/named -> Single Card based on name
     /cards/autocomplete -> Catalog object of 20 english cards matching name query
-/cards/random -> Random cardRequest based on optional query
+    /cards/random -> Random cardRequest based on optional query
 /cards/collection -> Collection of Cards based on posted cardRequest identifier json
 
 /cards/<code>/<number>(/<lang>) -> Single Card based on set code and collector number with optional lang
