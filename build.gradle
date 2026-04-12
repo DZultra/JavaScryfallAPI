@@ -98,6 +98,7 @@ jreleaser {
                     javadocJar = true
                     username = findProperty("mavenUser")
                     password = findProperty("mavenPassword")
+                    waitForDeployment = false
                 }
                 pomchecker {
                     version = rootProject.version.toString()
