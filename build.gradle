@@ -7,7 +7,7 @@ plugins {
 def home = System.getProperty("user.home")
 
 group = 'net.dzultra'
-version = '1.0.0'
+version = '1.0.1'
 
 repositories {
     mavenCentral()
@@ -98,7 +98,6 @@ jreleaser {
                     javadocJar = true
                     username = findProperty("mavenUser")
                     password = findProperty("mavenPassword")
-                    waitForDeployment = false
                 }
                 pomchecker {
                     version = rootProject.version.toString()
