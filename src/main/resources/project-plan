@@ -12,7 +12,7 @@ Cards
     /cards/named -> Single Card based on name
     /cards/autocomplete -> Catalog object of 20 english cards matching name query
     /cards/random -> Random cardRequest based on optional query
-/cards/collection -> Collection of Cards based on posted cardRequest identifier json
+!!/cards/collection -> Collection of Cards based on posted cardRequest identifier json!!!
 
     /cards/<code>/<number>(/<lang>) -> Single Card based on set code and collector number with optional lang
     /cards/multiverse/<id> -> Single Card based on Multiverse ID
@@ -21,7 +21,7 @@ Cards
     /cards/tcgplayer/<id> -> Single Card based on TCGPlayer ID
     /cards/cardmarket/<id> -> Single Card based on Cardmarket ID
     /cards/<id> -> Single Card based on Scryfall ID
-All of the Single Card based api endpoints all have /rulings to get rulings for a cardRequest
+!!All of the Single Card based api endpoints all have /rulings to get rulings for a cardRequest!!
 
     /symbology -> List of all Card Symbols
     /symbology/parse-mana -> Scryfall Interpretation of given mana cost
@@ -52,6 +52,6 @@ All of the Single Card based api endpoints all have /rulings to get rulings for 
     /bulk-data/<type> -> Bulk Data object based on type
 
 
-
+./gradlew clean build publish jreleaserFullRelease
 
 
