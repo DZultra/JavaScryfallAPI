@@ -54,4 +54,6 @@ Cards
 
 ./gradlew clean build publish jreleaserFullRelease
 
+Make Gson only once in ScryfallClient and access it via that
+Other Refactors
 
