@@ -20,7 +20,7 @@ import java.util.UUID;
 
 public class TestingMain {
     public static void main(String[] args) throws IOException, URISyntaxException, InterruptedException {
-        ScryfallClient client = new ScryfallClient("JavaScryfallAPITest/1.0");
+        ScryfallClient client = new ScryfallClient("JavaScryfallAPITest/1.0.2");
 
 //        Catalog catalog = new Catalog(client, CatalogType.ARTIST_NAMES);
 //        for (String artist : catalog.getCatalog().data()) {
