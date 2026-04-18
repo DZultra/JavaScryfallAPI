@@ -7,7 +7,7 @@ plugins {
 def home = System.getProperty("user.home")
 
 group = 'net.dzultra'
-version = '1.0.0'
+version = '1.0.1'
 
 repositories {
     mavenCentral()
@@ -37,11 +37,11 @@ publishing {
                 name = 'JavaScryfallAPI'
                 description = 'JavaScryfallAPI is an API Wrapper written in Java for the popular Magic The Gathering Database Scryfall.'
                 url = 'https://github.com/DZultra/JavaScryfallAPI'
-                inceptionYear = '2021'
+                inceptionYear = '2026'
                 licenses {
                     license {
-                        name = 'MIT'
-                        url = 'https://opensource.org/license/mit'
+                        name = 'MIT | Scryfall API Terms of Service'
+                        url = 'https://github.com/DZultra/JavaScryfallAPI/blob/master/LICENSE.md'
                     }
                 }
                 developers {
@@ -59,7 +59,12 @@ publishing {
         }
     }
 
-    repositories { maven { url = layout.buildDirectory.dir('staging-deploy') } }
+    repositories {
+        maven {
+            name = "staging"
+            url = layout.buildDirectory.dir("staging-deploy")
+        }
+    }
 }
 
 jreleaser {
