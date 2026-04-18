@@ -9,7 +9,7 @@ public record SymbologyResponse (
     SymbologyObjectRecord[] data
 ) {
     public record SymbologyObjectRecord(
-            @SerializedName("object") String object,
+            @SerializedName("object") String type,
             String symbol,
             @Nullable @SerializedName("svg_uri") String svgUri,
             @Nullable @SerializedName("loose_variant") String looseVariant,
