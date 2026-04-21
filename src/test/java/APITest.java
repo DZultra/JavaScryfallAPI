@@ -5,7 +5,7 @@ import java.net.URISyntaxException;
 
 public class APITest {
     public static void main(String[] args) throws IOException, URISyntaxException, InterruptedException {
-        ScryfallClient client = new ScryfallClient("JavaScryfallAPITest/1.0.2");
+        ScryfallClient client = new ScryfallClient("JavaScryfallAPITest/1.0.3");
 
 //        Catalog catalog = new Catalog(client, CatalogType.ARTIST_NAMES);
 //        for (String artist : catalog.getCatalog().data()) {
